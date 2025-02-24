@@ -9,3 +9,46 @@ Este repositório contém um projeto desenvolvido para o curso da DIO em parceri
 - **Spring Data JPA**: Facilitaremos o acesso e a manipulação de dados em bancos SQL utilizando o Spring Data JPA, tornando a integração mais simples e intuitiva.  
 - **OpenAPI (Swagger)**: Implementaremos uma documentação clara e acessível para nossas APIs com OpenAPI (Swagger), alinhando-se à filosofia de produtividade do Spring Boot.  
 - **Railway**: Utilizaremos o Railway para simplificar o deploy e monitoramento de nossas aplicações na nuvem, além de contar com suporte para bancos de dados como serviço e pipelines de CI/CD.
+
+## Diagrama de Classes (Domínio da API)
+
+```mermaid
+classDiagram
+  class User {
+    -String name
+    -Account account
+    -Feature[] features
+    -Card card
+    -News[] news
+  }
+
+  class Account {
+    -String number
+    -String agency
+    -Number balance
+    -Number limit
+  }
+
+  class Feature {
+    -String icon
+    -String description
+  }
+
+  class Card {
+    -String number
+    -Number limit
+  }
+
+  class News {
+    -String icon
+    -String description
+  }
+
+  User "1" *-- "1" Account
+  User "1" *-- "N" Feature
+  User "1" *-- "1" Card
+  User "1" *-- "N" News
+```
+
+
+
